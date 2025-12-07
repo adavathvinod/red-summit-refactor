@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react";
+import teamDrivers from "@/assets/team-drivers.jpeg";
 
 const highlights = [
   "Founded in 2019 with a vision to simplify corporate employee transportation",
@@ -73,6 +74,13 @@ export function AboutSection() {
 
             <div className="card-elevated animate-fade-up delay-200">
               <h3 className="heading-card text-primary mb-4">Our Strength – The Drivers</h3>
+              <div className="mb-4 rounded-lg overflow-hidden">
+                <img 
+                  src={teamDrivers} 
+                  alt="Aditya Travels professional driver team" 
+                  className="w-full h-48 object-cover"
+                />
+              </div>
               <p className="text-body text-muted-foreground mb-4">
                 Our drivers are our brand ambassadors. They are:
               </p>
