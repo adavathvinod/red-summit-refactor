@@ -2,6 +2,46 @@ import { Button } from "@/components/ui/button";
 import { Phone, Shield, Clock, MapPin } from "lucide-react";
 import driverImage from "@/assets/driver-professional.png";
 
+// SVG Car Component for animation
+function AnimatedCar() {
+  return (
+    <div className="absolute bottom-8 left-0 w-full overflow-hidden pointer-events-none z-20">
+      <div className="animate-car-drive">
+        <svg
+          width="80"
+          height="32"
+          viewBox="0 0 80 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="drop-shadow-lg"
+        >
+          {/* Car Body */}
+          <path
+            d="M10 20C10 18 12 12 20 12H45C50 12 55 14 60 18H70C75 18 78 20 78 24V26H70C70 29 67 32 64 32C61 32 58 29 58 26H22C22 29 19 32 16 32C13 32 10 29 10 26H2V24C2 22 4 20 10 20Z"
+            fill="hsl(0, 72%, 45%)"
+          />
+          {/* Windows */}
+          <path
+            d="M22 14L25 8H42L47 14H22Z"
+            fill="hsl(0, 0%, 90%)"
+          />
+          <path
+            d="M48 14L44 8H50L58 14H48Z"
+            fill="hsl(0, 0%, 90%)"
+          />
+          {/* Wheels */}
+          <circle cx="16" cy="26" r="5" fill="hsl(0, 0%, 10%)" />
+          <circle cx="16" cy="26" r="2.5" fill="hsl(0, 0%, 30%)" />
+          <circle cx="64" cy="26" r="5" fill="hsl(0, 0%, 10%)" />
+          <circle cx="64" cy="26" r="2.5" fill="hsl(0, 0%, 30%)" />
+          {/* Headlights */}
+          <rect x="74" y="20" width="4" height="3" rx="1" fill="hsl(45, 100%, 70%)" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 export function HeroSection() {
   return (
     <section
@@ -14,6 +54,9 @@ export function HeroSection() {
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
+      
+      {/* Animated Car */}
+      <AnimatedCar />
       
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

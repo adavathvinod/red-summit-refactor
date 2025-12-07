@@ -280,6 +280,19 @@
   }
 }
 
+@keyframes carDrive {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px));
+  }
+}
+
+.animate-car-drive {
+  animation: carDrive 12s linear infinite;
+}
+
 @keyframes pulse-subtle {
   0%, 100% {
     opacity: 1;
