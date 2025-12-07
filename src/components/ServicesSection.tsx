@@ -1,7 +1,6 @@
 import { Car, Users, MapPin, Plane, Bus, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import carSuperb from "@/assets/car-superb.png";
-import carMercedes from "@/assets/car-mercedes.png";
 import carToyota from "@/assets/car-toyota.png";
 
 const services = [
@@ -56,9 +55,8 @@ const services = [
 ];
 
 const fleetImages = [
-  { src: carSuperb, alt: "Skoda Superb - Executive sedan" },
-  { src: carMercedes, alt: "Mercedes A-Class - Premium luxury" },
-  { src: carToyota, alt: "Toyota Corolla - Reliable comfort" },
+  { src: carSuperb, alt: "Skoda Superb - Executive Sedan" },
+  { src: carToyota, alt: "Toyota Corolla - Reliable Comfort" },
 ];
 
 export function ServicesSection() {
@@ -124,7 +122,7 @@ export function ServicesSection() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {fleetImages.map((image, index) => (
               <div
                 key={image.alt}
