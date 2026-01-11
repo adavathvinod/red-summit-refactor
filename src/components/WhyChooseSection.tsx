@@ -33,7 +33,7 @@ const reasons = [
 
 export function WhyChooseSection() {
   return (
-    <section id="why-us" className="section-padding bg-background">
+    <section id="why-us" className="section-padding bg-muted">
       <div className="section-container">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -54,7 +54,7 @@ export function WhyChooseSection() {
           {reasons.map((reason, index) => (
             <div
               key={reason.title}
-              className="flex gap-6 p-6 rounded-xl bg-muted/50 border border-border hover:border-primary/30 hover:bg-muted transition-all duration-300 animate-fade-up"
+              className="flex gap-6 p-6 rounded-xl bg-background/70 border border-border hover:border-primary/30 hover:bg-muted transition-all duration-300 animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex-shrink-0">

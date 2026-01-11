@@ -58,14 +58,12 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="section-padding bg-background">
+      
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left: Contact Info */}
           <div className="space-y-8">
             <div>
-              <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
-                Contact Us
-              </span>
               <h2 className="heading-section text-foreground mt-4">
                 Ready to Transform Your Corporate Travel?
               </h2>
@@ -142,7 +140,7 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    placeholder="John Doe"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 <div>
@@ -156,7 +154,7 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    placeholder="john@company.com"
+                    placeholder="Enter your email address"
                   />
                 </div>
               </div>
@@ -173,7 +171,7 @@ export function ContactSection() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    placeholder="+91 98765 43210"
+                    placeholder="enter your phone number"
                   />
                 </div>
                 <div>
@@ -186,7 +184,7 @@ export function ContactSection() {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    placeholder="Your Company"
+                    placeholder="Enter your company name"
                   />
                 </div>
               </div>

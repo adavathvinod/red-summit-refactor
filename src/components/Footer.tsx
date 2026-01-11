@@ -3,17 +3,18 @@ import logo from "@/assets/logo.jpeg";
 
 const footerLinks = {
   services: [
-    { name: "Employee Commute", href: "#services" },
-    { name: "Executive Travel", href: "#services" },
-    { name: "Airport Transfers", href: "#services" },
-    { name: "Event Logistics", href: "#services" },
-    { name: "Outstation Trips", href: "#services" },
+    { name: "Employee Commute", href: "/services" },
+    { name: "Executive Travel", href: "/services" },
+    { name: "Airport Transfers", href: "/services" },
+    { name: "Event Logistics", href: "/services" },
+    { name: "Outstation Trips", href: "/services" },
   ],
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Why Choose Us", href: "#why-us" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Fleet & Safety", href: "/fleet-and-safety" },
+    { name: "Technology", href: "/technology" },
+    { name: "Contact", href: "/contact" },
   ],
 };
 

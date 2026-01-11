@@ -6,9 +6,9 @@ import logo from "@/assets/logo.jpeg";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/#services" },
-  { name: "Why Us", href: "/#why-us" },
-  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Services", href: "/services" },
+  { name: "Technology", href: "/technology" },
+  { name: "Fleet & Safety", href: "/fleet-and-safety" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -26,12 +26,13 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#e5e7eb] ${
+    isScrolled
+      ? "bg-background shadow-lg"
+      : "bg-background"
+  }`}
+>
+
       {/* Top bar */}
       <div className="hidden md:block bg-secondary text-secondary-foreground py-2">
         <div className="section-container flex justify-between items-center text-sm">
@@ -59,7 +60,7 @@ export function Header() {
       <nav className="section-container py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-         <a href="#home" className="flex flex-col items-start leading-tight">
+         <a href="/" className="flex flex-col items-start leading-tight">
   <img
     src={logo}
     alt="Aditya Travel"

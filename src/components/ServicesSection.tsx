@@ -1,4 +1,4 @@
-import { Car, Users, MapPin, Plane, Bus, Globe } from "lucide-react";
+import { Car, Users, MapPin, Plane, Bus, Globe, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import carSuperb from "@/assets/car-superb.png";
 import carToyota from "@/assets/car-toyota.png";
@@ -11,6 +11,7 @@ const services = [
     description:
       "Daily pick-up and drop services for your workforce with OTP-verified rides and real-time tracking.",
     features: ["OTP Verified Rides", "Real-time GPS Tracking", "Route Optimization", "Daily Reports"],
+    href: "/services",
   },
   {
     icon: Users,
@@ -19,6 +20,7 @@ const services = [
     description:
       "Premium chauffeur services for your leadership team with luxury vehicles and professionally trained drivers.",
     features: ["Luxury Fleet", "Trained Chauffeurs", "Confidential Service", "Flexible Booking"],
+    href: "/services",
   },
   {
     icon: Bus,
@@ -27,6 +29,7 @@ const services = [
     description:
       "Ideal for group employee commutes, corporate events, or team outings with comfortable seating.",
     features: ["Large Fleet Capacity", "Event Coordination", "Multi-vehicle Sync", "On-ground Support"],
+    href: "/services",
   },
   {
     icon: Plane,
@@ -35,6 +38,7 @@ const services = [
     description:
       "Reliable airport pick-up and drop services with flight tracking and meet-and-greet options.",
     features: ["Flight Tracking", "Meet & Greet", "24/7 Availability", "Luggage Assistance"],
+    href: "/services",
   },
   {
     icon: MapPin,
@@ -43,6 +47,7 @@ const services = [
     description:
       "Comfortable rides beyond Hyderabad for leisure or business tours with experienced drivers.",
     features: ["Pan-India Coverage", "Tourist Guides", "Flexible Itinerary", "Comfortable Vehicles"],
+    href: "/services",
   },
   {
     icon: Globe,
@@ -51,8 +56,10 @@ const services = [
     description:
       "English-speaking chauffeurs and professional tourist guides available on request for international guests.",
     features: ["Bilingual Drivers", "Cultural Assistance", "Airport Protocol", "Custom Packages"],
+    href: "/services",
   },
 ];
+
 
 const fleetImages = [
   { src: carSuperb, alt: "Skoda Superb - Executive Sedan" },
@@ -81,10 +88,11 @@ export function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
-              key={service.title}
-              className="card-elevated group animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+  key={service.title}
+  className="card-elevated group animate-fade-up flex flex-col h-full"
+  style={{ animationDelay: `${index * 100}ms` }}
+>
+
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <service.icon className="w-6 h-6 text-primary" />
@@ -109,6 +117,18 @@ export function ServicesSection() {
                   </span>
                 ))}
               </div>
+              <div className="mt-auto pt-6">
+  <a
+    href={service.href}
+    className="inline-flex items-center gap-2 text-primary font-medium text-sm group transition-all"
+  >
+    <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all group-hover:after:w-full">
+      Read More
+    </span>
+    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+  </a>
+</div>
+
             </div>
           ))}
         </div>
@@ -116,7 +136,7 @@ export function ServicesSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <Button variant="brand" size="xl" asChild>
-            <a href="#contact">Get Custom Quote for Your Business</a>
+            <a href="/contact">Get Custom Quote for Your Business</a>
           </Button>
         </div>
       </div>

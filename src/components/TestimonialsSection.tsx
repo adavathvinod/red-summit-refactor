@@ -26,21 +26,24 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="section-padding bg-secondary">
+    <section id="testimonials" className="section-padding bg-background">
       <div className="section-container">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
-            Client Success Stories
-          </span>
-          <h2 className="heading-section text-secondary-foreground mt-4">
-            What Our Clients Say
-          </h2>
-          <p className="text-body text-secondary-foreground/80 mt-4">
-            Don't just take our word for it. Here's what corporate leaders have to say 
-            about partnering with Aditya Travels.
-          </p>
-        </div>
+       <div className="text-center max-w-3xl mx-auto mb-16">
+  <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
+    Client Success Stories
+  </span>
+
+  <h2 className="heading-section text-black mt-4">
+    What Our Clients Say
+  </h2>
+
+  <p className="text-body text-black/80 mt-4">
+    Don't just take our word for it. Here's what corporate leaders have to say 
+    about partnering with Aditya Travels.
+  </p>
+</div>
+
 
         {/* Testimonials Grid */}
         <div className="grid lg:grid-cols-3 gap-8">

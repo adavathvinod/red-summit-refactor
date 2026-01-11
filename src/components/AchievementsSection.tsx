@@ -25,7 +25,7 @@ const achievements = [
 
 export function AchievementsSection() {
   return (
-    <section className="section-padding bg-muted">
+    <section className="section-padding bg-background">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Achievements */}

@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 function GoogleMap() {
   return (
@@ -38,17 +39,26 @@ function GoogleMap() {
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+        <SEO
+        title="Contact Aditya Travel | Corporate Transportation Hyderabad"
+        description="Contact Aditya Travel for corporate transportation quotes, employee commute solutions, and executive travel services in Hyderabad."
+        url="https://adityatrav.com/contact"
+      />
+
       <Header />
-      <main className="pt-32 md:pt-40">
+      <main className="md:pt-28">
         {/* Hero Banner */}
-        <section className="bg-secondary py-16 md:py-20">
-          <div className="section-container text-center">
-            <h1 className="heading-hero text-foreground">Contact Us</h1>
-            <p className="text-body text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Get in touch with our team for corporate travel solutions, quotes, and inquiries.
-            </p>
-          </div>
-        </section>
+       <section className="bg-secondary py-16 md:py-20">
+  <div className="section-container text-center">
+    <h1 className="heading-section text-white">
+      Contact Us
+    </h1>
+    <p className="text-body text-white/80 mt-4 max-w-2xl mx-auto">
+      Get in touch with our team for corporate travel solutions, quotes, and inquiries.
+    </p>
+  </div>
+</section>
+
         
         <ContactSection />
         <GoogleMap />

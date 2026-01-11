@@ -101,7 +101,7 @@ export function HeroSection() {
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-up delay-400">
               <Button variant="hero" size="xl" asChild>
-                <a href="#contact">Request Corporate Quote</a>
+                <a href="/contact">Request Corporate Quote</a>
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
                 <a href="tel:+918523880666">
