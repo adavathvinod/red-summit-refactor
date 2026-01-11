@@ -38,17 +38,42 @@ export function ContactSection() {
     company: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast({
+        title: "Missing required fields",
+        description: "Please fill Name, Email and Phone number.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const whatsappNumber = "918523880666"; // BUSINESS WHATSAPP NUMBER (no +)
+
+    const whatsappMessage = `
+*Corporate Travel Quote Request*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*Company:* ${formData.company || "N/A"}
+
+*Requirements:*
+${formData.message || "Not specified"}
+`;
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappURL, "_blank");
 
     toast({
-      title: "Quote Request Submitted!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Opening WhatsApp",
+      description: "Please send the message to complete your request.",
     });
 
     setFormData({
@@ -58,7 +83,6 @@ export function ContactSection() {
       company: "",
       message: "",
     });
-    setIsSubmitting(false);
   };
 
   return (
@@ -72,39 +96,40 @@ export function ContactSection() {
           {/* LEFT: CONTACT INFO */}
           <div className="space-y-8 animate-fade-up">
             <div>
-              <h2 className="heading-section text-foreground animate-fade-up">
+              <h2 className="heading-section text-foreground">
                 Ready to Transform Your Corporate Travel?
               </h2>
-              <p className="text-body text-muted-foreground mt-4 animate-fade-up delay-100">
-                Get a customized quote tailored to your company's specific
-                transportation needs. Our team will respond within 24 hours.
+              <p className="text-body text-muted-foreground mt-4">
+                Get a customized quote tailored to your company's transportation
+                needs. Our team will respond within 24 hours.
               </p>
             </div>
 
-            <div className="space-y-6 animate-fade-up delay-200">
+            <div className="space-y-6">
               {contactInfo.map((item, index) => (
                 <div
                   key={item.label}
                   className="flex items-start gap-4 animate-fade-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
+
                   <div>
-                    <div className="text-sm text-muted-foreground font-sans">
+                    <div className="text-sm text-muted-foreground">
                       {item.label}
                     </div>
 
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="font-serif font-semibold text-foreground hover:text-primary transition-colors"
+                        className="font-semibold text-foreground hover:text-primary transition-colors"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <div className="font-serif font-semibold text-foreground">
+                      <div className="font-semibold text-foreground">
                         {item.value}
                       </div>
                     )}
@@ -112,7 +137,7 @@ export function ContactSection() {
                     {item.secondary && (
                       <a
                         href={item.secondaryHref}
-                        className="block text-sm text-muted-foreground hover:text-primary transition-colors font-sans"
+                        className="block text-sm text-muted-foreground hover:text-primary"
                       >
                         {item.secondary}
                       </a>
@@ -123,97 +148,105 @@ export function ContactSection() {
             </div>
 
             {/* BUSINESS INFO */}
-            <div className="p-6 bg-muted rounded-xl border border-border animate-fade-up delay-500">
-              <h3 className="font-serif font-semibold text-foreground mb-2">
+            <div className="p-6 bg-muted rounded-xl border border-border">
+              <h3 className="font-semibold text-foreground mb-2">
                 Aditya Travels
               </h3>
-              <p className="text-sm text-muted-foreground font-sans">
+              <p className="text-sm text-muted-foreground">
                 GSTIN: 36BOAPG5682R2ZA
               </p>
-              <p className="text-sm text-muted-foreground font-sans">
+              <p className="text-sm text-muted-foreground">
                 Website: www.adityatrav.com
               </p>
-              <p className="text-primary font-serif font-semibold mt-4 italic">
+              <p className="text-primary font-semibold mt-4 italic">
                 "Aditya Travels – On Time. Every Time. With Care"
               </p>
             </div>
           </div>
 
-          {/* RIGHT: CONTACT FORM */}
-          <div className="bg-card rounded-xl p-8 shadow-elevated border border-border animate-fade-up delay-300">
-            <h3 className="heading-card text-foreground mb-6 animate-fade-up delay-400">
+          {/* RIGHT: FORM */}
+          <div className="bg-card rounded-xl p-8 shadow-elevated border border-border">
+            <h3 className="heading-card text-foreground mb-6">
               Request Corporate Quote
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { id: "name", label: "Full Name *", type: "text", placeholder: "Enter your full name" },
-                  { id: "email", label: "Email *", type: "email", placeholder: "Enter your email address" },
-                ].map((field, index) => (
-                  <div key={field.id} className="animate-fade-up" style={{ animationDelay: `${500 + index * 100}ms` }}>
-                    <label
-                      htmlFor={field.id}
-                      className="block text-sm font-sans font-medium text-foreground mb-2"
-                    >
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type}
-                      id={field.id}
-                      required
-                      value={formData[field.id as keyof typeof formData] as string}
-                      onChange={(e) =>
-                        setFormData({ ...formData, [field.id]: e.target.value })
-                      }
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                      placeholder={field.placeholder}
-                    />
-                  </div>
-                ))}
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg border"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg border"
+                    placeholder="Enter your email"
+                  />
+                </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { id: "phone", label: "Phone Number *", type: "tel", placeholder: "Enter your phone number" },
-                  { id: "company", label: "Company Name", type: "text", placeholder: "Enter your company name" },
-                ].map((field, index) => (
-                  <div key={field.id} className="animate-fade-up" style={{ animationDelay: `${700 + index * 100}ms` }}>
-                    <label
-                      htmlFor={field.id}
-                      className="block text-sm font-sans font-medium text-foreground mb-2"
-                    >
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type}
-                      id={field.id}
-                      value={formData[field.id as keyof typeof formData] as string}
-                      onChange={(e) =>
-                        setFormData({ ...formData, [field.id]: e.target.value })
-                      }
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                      placeholder={field.placeholder}
-                    />
-                  </div>
-                ))}
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg border"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Company Name
+                  </label>
+                  <input
+                    value={formData.company}
+                    onChange={(e) =>
+                      setFormData({ ...formData, company: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg border"
+                    placeholder="Company name"
+                  />
+                </div>
               </div>
 
-              <div className="animate-fade-up delay-900">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-sans font-medium text-foreground mb-2"
-                >
+              <div>
+                <label className="block text-sm font-medium mb-2">
                   Your Requirements
                 </label>
                 <textarea
-                  id="message"
                   rows={4}
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground font-sans text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border resize-none"
                   placeholder="Tell us about your transportation needs..."
                 />
               </div>
@@ -222,17 +255,10 @@ export function ContactSection() {
                 type="submit"
                 variant="brand"
                 size="xl"
-                className="w-full animate-fade-up delay-1000"
-                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2"
               >
-                {isSubmitting ? (
-                  "Submitting..."
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Request Quote
-                  </>
-                )}
+                <Send className="w-5 h-5" />
+                Send via WhatsApp
               </Button>
             </form>
           </div>
