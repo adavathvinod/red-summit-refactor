@@ -60,18 +60,12 @@ const services = [
   },
 ];
 
-
-const fleetImages = [
-  { src: carSuperb, alt: "Skoda Superb - Executive Sedan" },
-  { src: carToyota, alt: "Toyota Corolla - Reliable Comfort" },
-];
-
 export function ServicesSection() {
   return (
     <section id="services" className="section-padding bg-muted">
       <div className="section-container">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
           <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
             Our Services
           </span>
@@ -79,7 +73,7 @@ export function ServicesSection() {
             Comprehensive Corporate Travel Solutions
           </h2>
           <p className="text-body text-muted-foreground mt-4">
-            From daily employee commute to executive travel and event logistics, we provide 
+            From daily employee commute to executive travel and event logistics, we provide
             end-to-end transportation solutions tailored for your business.
           </p>
         </div>
@@ -88,55 +82,69 @@ export function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
-  key={service.title}
-  className="card-elevated group animate-fade-up flex flex-col h-full"
-  style={{ animationDelay: `${index * 100}ms` }}
->
-
+              key={service.title}
+              className="card-elevated group animate-fade-up flex flex-col h-full"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <service.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="heading-card text-foreground">{service.title}</h3>
-                  <span className="text-sm font-sans text-primary">{service.subtitle}</span>
+                  <h3 className="heading-card text-foreground">
+                    {service.title}
+                  </h3>
+                  <span className="text-sm font-sans text-primary">
+                    {service.subtitle}
+                  </span>
                 </div>
               </div>
-              
+
               <p className="text-sm text-muted-foreground font-sans mb-4">
                 {service.description}
               </p>
-              
+
+              {/* Features */}
               <div className="flex flex-wrap gap-2">
-                {service.features.map((feature) => (
+                {service.features.map((feature, fIndex) => (
                   <span
                     key={feature}
-                    className="inline-block px-3 py-1 bg-muted rounded-full text-xs font-sans font-medium text-muted-foreground"
+                    className="inline-block px-3 py-1 bg-muted rounded-full text-xs font-sans font-medium text-muted-foreground animate-fade-up"
+                    style={{ animationDelay: `${fIndex * 60}ms` }}
                   >
                     {feature}
                   </span>
                 ))}
               </div>
-              <div className="mt-auto pt-6">
-  <a
-    href={service.href}
-    className="inline-flex items-center gap-2 text-primary font-medium text-sm group transition-all"
-  >
-    <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all group-hover:after:w-full">
-      Read More
-    </span>
-    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-  </a>
-</div>
 
+              {/* Read More */}
+              <div className="mt-auto pt-6">
+                <a
+                  href={service.href}
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm group"
+                >
+                  <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all group-hover:after:w-full">
+                    Read More
+                  </span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div
+          className="text-center mt-12 animate-fade-up"
+          style={{ animationDelay: "600ms" }}
+        >
           <Button variant="brand" size="xl" asChild>
-            <a href="/contact">Get Custom Quote for Your Business</a>
+            <a
+              href="/contact"
+              style={{ maxWidth: "300px", width: "100%" }}
+            >
+              Get Custom Quote for Your Business
+            </a>
           </Button>
         </div>
       </div>

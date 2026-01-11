@@ -39,26 +39,34 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   }, [value, hasAnimated]);
 
   return (
-    <div ref={ref} className="text-4xl md:text-5xl font-bold text-foreground">
-      {count}{suffix}
+    <div
+      ref={ref}
+      className="text-4xl md:text-5xl font-bold text-foreground"
+    >
+      {count}
+      {suffix}
     </div>
   );
 }
 
 export function StatsSection() {
   return (
-    <section className="py-16" style={{background: '#f3f4f6'}}>
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-muted">
+      <div className="section-container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (
-            <div key={index}>
+            <div
+              key={stat.label}
+              className="animate-fade-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <div className="mx-auto mb-4 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                 <stat.icon className="w-6 h-6 text-primary" />
               </div>
 
               <AnimatedCounter value={stat.value} suffix={stat.suffix} />
 
-              <div className="text-muted-foreground mt-2">
+              <div className="text-muted-foreground mt-2 font-sans text-sm">
                 {stat.label}
               </div>
             </div>

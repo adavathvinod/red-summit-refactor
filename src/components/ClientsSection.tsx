@@ -10,20 +10,22 @@ const clients = [
 
 export function ClientsSection() {
   return (
-    <section className="py-16 bg-muted">
+    <section className="py-16 bg-muted overflow-hidden">
       <div className="section-container">
+        
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
+        <div className="text-center mb-12 animate-fade-up">
+          <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider animate-fade-up">
             Our Trusted Clients
           </span>
-          <h2 className="heading-section text-foreground mt-4">
+
+          <h2 className="heading-section text-foreground mt-4 animate-fade-up delay-100">
             Trusted by Leading Corporations
           </h2>
         </div>
 
         {/* Client logos */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 animate-fade-up delay-200">
           {clients.map((client, index) => (
             <div
               key={client.name}
@@ -35,12 +37,14 @@ export function ClientsSection() {
                   {client.initials}
                 </span>
               </div>
+
               <span className="text-sm font-sans font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                 {client.name}
               </span>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -25,21 +25,27 @@ const achievements = [
 
 export function AchievementsSection() {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-hidden">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Achievements */}
-          <div className="space-y-8">
+          
+          {/* LEFT: ACHIEVEMENTS */}
+          <div className="space-y-8 animate-fade-up">
+            
+            {/* Section Header */}
             <div>
-              <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
+              <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider animate-fade-up">
                 Our Achievements
               </span>
-              <h2 className="heading-section text-foreground mt-4">
-                A Track Record of <span className="text-primary">Excellence</span>
+
+              <h2 className="heading-section text-foreground mt-4 animate-fade-up delay-100">
+                A Track Record of{" "}
+                <span className="text-primary">Excellence</span>
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            {/* Achievement Cards */}
+            <div className="grid sm:grid-cols-2 gap-6 animate-fade-up delay-200">
               {achievements.map((achievement, index) => (
                 <div
                   key={achievement.title}
@@ -49,6 +55,7 @@ export function AchievementsSection() {
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <achievement.icon className="w-5 h-5 text-primary" />
                   </div>
+
                   <div>
                     <h3 className="font-serif font-semibold text-foreground text-sm">
                       {achievement.title}
@@ -62,47 +69,43 @@ export function AchievementsSection() {
             </div>
           </div>
 
-          {/* Right: Key Highlights */}
-          <div className="bg-secondary rounded-2xl p-8 animate-fade-up delay-200">
-            <h3 className="heading-card text-primary mb-6">
+          {/* RIGHT: TECHNOLOGY HIGHLIGHTS */}
+          <div className="bg-secondary rounded-2xl p-8 animate-fade-up delay-300">
+            <h3 className="heading-card text-primary mb-6 animate-fade-up delay-400">
               Technology-Driven Operations
             </h3>
-            <p className="text-secondary-foreground font-sans mb-6">
+
+            <p className="text-secondary-foreground font-sans mb-6 animate-fade-up delay-500">
               Partnered with MoveInSync, we bring technology to your doorstep:
             </p>
+
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-secondary-foreground font-sans text-sm">
-                  Contactless, OTP-verified rides for employee safety
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-secondary-foreground font-sans text-sm">
-                  Real-time tracking of vehicles and driver movements
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-secondary-foreground font-sans text-sm">
-                  Optimized route mapping for minimal commute time and maximum efficiency
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-secondary-foreground font-sans text-sm">
-                  Detailed daily reports and billing transparency
-                </span>
-              </li>
+              {[
+                "Contactless, OTP-verified rides for employee safety",
+                "Real-time tracking of vehicles and driver movements",
+                "Optimized route mapping for minimal commute time and maximum efficiency",
+                "Detailed daily reports and billing transparency",
+              ].map((text, index) => (
+                <li
+                  key={index}
+                  className="flex items-start gap-3 animate-fade-up"
+                  style={{ animationDelay: `${600 + index * 100}ms` }}
+                >
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-secondary-foreground font-sans text-sm">
+                    {text}
+                  </span>
+                </li>
+              ))}
             </ul>
 
-            <div className="mt-8 pt-6 border-t border-secondary-foreground/20">
+            <div className="mt-8 pt-6 border-t border-secondary-foreground/20 animate-fade-up delay-1000">
               <p className="text-primary font-serif font-semibold text-lg italic text-center">
-                "Aditya Travels - On Time. Every Time. With Care"
+                "Aditya Travels – On Time. Every Time. With Care"
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>

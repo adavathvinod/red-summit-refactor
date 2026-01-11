@@ -35,16 +35,19 @@ export function WhyChooseSection() {
   return (
     <section id="why-us" className="section-padding bg-muted">
       <div className="section-container">
+        
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
+          <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider animate-fade-up">
             Why Choose Us
           </span>
-          <h2 className="heading-section text-foreground mt-4">
+
+          <h2 className="heading-section text-foreground mt-4 animate-fade-up delay-100">
             Excellence in Every Journey
           </h2>
-          <p className="text-body text-muted-foreground mt-4">
-            We combine professional drivers, modern technology, and stringent safety protocols 
+
+          <p className="text-body text-muted-foreground mt-4 animate-fade-up delay-200">
+            We combine professional drivers, modern technology, and stringent safety protocols
             to deliver an unmatched corporate travel experience.
           </p>
         </div>
@@ -62,11 +65,16 @@ export function WhyChooseSection() {
                   <reason.icon className="w-7 h-7 text-primary" />
                 </div>
               </div>
+
               <div className="space-y-3">
-                <h3 className="heading-card text-foreground">{reason.title}</h3>
+                <h3 className="heading-card text-foreground">
+                  {reason.title}
+                </h3>
+
                 <p className="text-muted-foreground font-sans text-sm leading-relaxed">
                   {reason.description}
                 </p>
+
                 <div className="flex flex-wrap gap-2">
                   {reason.features.map((feature) => (
                     <span
@@ -81,6 +89,7 @@ export function WhyChooseSection() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -28,29 +28,29 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="section-padding bg-background">
       <div className="section-container">
+        
         {/* Header */}
-       <div className="text-center max-w-3xl mx-auto mb-16">
-  <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider">
-    Client Success Stories
-  </span>
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
+          <span className="text-sm font-sans font-semibold text-primary uppercase tracking-wider animate-fade-up">
+            Client Success Stories
+          </span>
 
-  <h2 className="heading-section text-black mt-4">
-    What Our Clients Say
-  </h2>
+          <h2 className="heading-section text-foreground mt-4 animate-fade-up delay-100">
+            What Our Clients Say
+          </h2>
 
-  <p className="text-body text-black/80 mt-4">
-    Don't just take our word for it. Here's what corporate leaders have to say 
-    about partnering with Aditya Travels.
-  </p>
-</div>
-
+          <p className="text-body text-muted-foreground mt-4 animate-fade-up delay-200">
+            Don't just take our word for it. Here's what corporate leaders have to say
+            about partnering with Aditya Travels.
+          </p>
+        </div>
 
         {/* Testimonials Grid */}
         <div className="grid lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="bg-background rounded-xl p-8 shadow-elevated animate-fade-up relative"
+              className="bg-background rounded-xl p-8 shadow-elevated relative animate-fade-up"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Quote icon */}
@@ -61,7 +61,7 @@ export function TestimonialsSection() {
               </div>
 
               <blockquote className="text-muted-foreground font-sans text-sm leading-relaxed mt-4 mb-6">
-                "{testimonial.quote}"
+                “{testimonial.quote}”
               </blockquote>
 
               <div className="border-t border-border pt-4">
@@ -78,6 +78,7 @@ export function TestimonialsSection() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
