@@ -59,13 +59,17 @@ export function Header() {
       <nav className="section-container py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center">
-            <img
-              src={logo}
-              alt="Aditya Travel - Your Corporate Travel Partner"
-              className="h-12 md:h-16 w-auto object-contain"
-            />
-          </a>
+         <a href="#home" className="flex flex-col items-start leading-tight">
+  <img
+    src={logo}
+    alt="Aditya Travel"
+    className="h-12 w-auto object-contain"
+  />
+  <span className="text-xs text-muted-foreground mt-1 tracking-wide">
+    On Time. Every Time. With Care.
+  </span>
+</a>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">

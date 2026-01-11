@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin, Facebook, Twitter, Shield, Clock, Award } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
 const footerLinks = {
@@ -22,6 +22,24 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary text-secondary-foreground">
+          <div className="border-b border-primary-foreground/10">
+        <div className="container py-6">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+            <div className="flex items-center gap-2">
+              <Shield className="h-5 w-5 text-corporate-green" />
+              <span>100% Safety Record</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5 text-corporate-sky" />
+              <span>24/7 Support</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="h-5 w-5 text-corporate-gold" />
+              <span>ISO Certified Operations</span>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Main Footer */}
       <div className="section-container py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">

@@ -113,39 +113,6 @@ export function ServicesSection() {
           ))}
         </div>
 
-        {/* Fleet Showcase */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="heading-section text-foreground">Our Premium Fleet</h3>
-            <p className="text-body text-muted-foreground mt-2">
-              Vehicles not older than 5 years, regularly serviced and sanitized
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {fleetImages.map((image, index) => (
-              <div
-                key={image.alt}
-                className="group relative overflow-hidden rounded-xl animate-fade-up"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-secondary-foreground font-serif font-semibold">
-                      {image.alt}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center mt-12">
           <Button variant="brand" size="xl" asChild>
