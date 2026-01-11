@@ -1,4 +1,4 @@
-import { Car, Users, MapPin, Plane, Bus, Globe, ArrowRight } from "lucide-react";
+import { Car, Users, MapPin, Plane, Bus, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import carSuperb from "@/assets/car-superb.png";
 import carToyota from "@/assets/car-toyota.png";
@@ -114,15 +114,9 @@ export function ServicesSection() {
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+        <div className="text-center mt-12">
           <Button variant="brand" size="xl" asChild>
-            <a href="/contact">Get Custom Quote for Your Business</a>
-          </Button>
-          <Button variant="outline" size="xl" asChild>
-            <a href="/services">
-              Learn More About Our Services
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
+            <a href="#contact">Get Custom Quote for Your Business</a>
           </Button>
         </div>
       </div>
