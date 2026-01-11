@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Why Us", href: "#why-us" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Services", href: "/#services" },
+  { name: "Why Us", href: "/#why-us" },
+  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -87,7 +87,7 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
             <Button variant="brandOutline" size="lg" asChild>
-              <a href="#contact">Get Quote</a>
+              <a href="/contact">Get Quote</a>
             </Button>
             <Button variant="brand" size="lg" asChild>
               <a href="tel:+918523880666">
@@ -129,7 +129,7 @@ export function Header() {
                   </a>
                 </Button>
                 <Button variant="brandOutline" size="lg" asChild>
-                  <a href="#contact">Get Quote</a>
+                  <a href="/contact">Get Quote</a>
                 </Button>
               </div>
             </div>
